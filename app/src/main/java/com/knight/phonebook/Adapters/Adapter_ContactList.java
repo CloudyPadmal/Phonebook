@@ -14,9 +14,6 @@ import com.knight.phonebook.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Knight on 3/20/2016.
- **/
 
 public class Adapter_ContactList extends BaseAdapter {
 
