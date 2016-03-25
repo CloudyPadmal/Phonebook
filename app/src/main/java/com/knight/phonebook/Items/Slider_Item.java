@@ -3,9 +3,6 @@ package com.knight.phonebook.Items;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-/**
- * Created by Knight on 3/22/2016.
- **/
 
 public class Slider_Item {
 

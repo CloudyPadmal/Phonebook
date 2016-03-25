@@ -1,25 +1,13 @@
 package com.knight.phonebook.Items;
 
-/**
- * Created by Knight on 3/20/2016.
- **/
+
+import android.util.TypedValue;
 
 public class Contact_Item {
 
-    private String contact_Name, mobile_Number, land_Number, email_Number, image_ID;
-    private Boolean has_Land, has_Mobile, has_Email;
+    private String contact_Name, mobile_Number, land_Number, email, image_ID;
 
-    public Contact_Item(String contact_Name, String mobile_Number, String land_Number, String email_Number, String image_ID) {
-
-        this.contact_Name = contact_Name;
-        this.mobile_Number = mobile_Number;
-        this.land_Number = land_Number;
-        this.email_Number = email_Number;
-        this.image_ID = image_ID;
-
-        this.has_Email = (email_Number != null) ? Boolean.TRUE : Boolean.FALSE;
-        this.has_Land = (land_Number != null) ? Boolean.TRUE : Boolean.FALSE;
-        this.has_Mobile = (mobile_Number != null) ? Boolean.TRUE : Boolean.FALSE;
+    public Contact_Item() {
 
     }
 
@@ -35,8 +23,8 @@ public class Contact_Item {
         return this.land_Number;
     }
 
-    public String getEmail_Number() {
-        return this.email_Number;
+    public String getEmail() {
+        return this.email;
     }
 
     public String getImage_ID() {
@@ -44,15 +32,15 @@ public class Contact_Item {
     }
 
     public Boolean Has_Land() {
-        return this.has_Land;
+        return (land_Number != null) ? Boolean.TRUE : Boolean.FALSE;
     }
 
     public Boolean Has_Mobile() {
-        return this.has_Mobile;
+        return (mobile_Number != null) ? Boolean.TRUE : Boolean.FALSE;
     }
 
     public Boolean Has_Email() {
-        return this.has_Email;
+        return (email != null) ? Boolean.TRUE : Boolean.FALSE;
     }
 
     public void setContact_Name(String contact_Name) {
@@ -67,12 +55,11 @@ public class Contact_Item {
         this.land_Number = land_Number;
     }
 
-    public void setEmail_Number(String email_Number) {
-        this.email_Number = email_Number;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setImage_ID(String image_ID) {
         this.image_ID = image_ID;
     }
-
 }

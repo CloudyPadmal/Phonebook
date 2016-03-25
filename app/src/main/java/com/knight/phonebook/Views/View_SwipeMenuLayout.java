@@ -2,6 +2,7 @@ package com.knight.phonebook.Views;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.widget.ScrollerCompat;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -72,7 +73,8 @@ public class View_SwipeMenuLayout extends FrameLayout {
             }
 
             @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            public boolean onFling(MotionEvent e1, MotionEvent e2,
+                                   float velocityX, float velocityY) {
                 if (Math.abs(e1.getX() - e2.getX()) > MIN_FLING
                         && velocityX < MAX_VELOCITYX) {
                     isFling = true;
@@ -109,6 +111,7 @@ public class View_SwipeMenuLayout extends FrameLayout {
 
         addView(mContentView);
         addView(mMenuView);
+
     }
 
     @Override
@@ -124,24 +127,18 @@ public class View_SwipeMenuLayout extends FrameLayout {
     public boolean onSwipe(MotionEvent event) {
         mGestureDetector.onTouchEvent(event);
         switch (event.getAction()) {
-
             case MotionEvent.ACTION_DOWN:
-
                 mDownX = (int) event.getX();
                 isFling = false;
                 break;
-
             case MotionEvent.ACTION_MOVE:
-
                 int dis = (int) (mDownX - event.getX());
                 if (state == STATE_OPEN) {
                     dis += mMenuView.getWidth()*mSwipeDirection;;
                 }
                 swipe(dis);
                 break;
-
             case MotionEvent.ACTION_UP:
-
                 if ((isFling || Math.abs(mDownX - event.getX()) > (mMenuView.getWidth() / 2)) &&
                         Math.signum(mDownX - event.getX()) == mSwipeDirection) {
                     smoothOpenMenu();
@@ -172,11 +169,17 @@ public class View_SwipeMenuLayout extends FrameLayout {
         }
 
         mContentView.layout(-dis, mContentView.getTop(),
-                mContentView.getWidth() - dis, getMeasuredHeight());
+                mContentView.getWidth() -dis, getMeasuredHeight());
 
-        mMenuView.layout(mContentView.getWidth() - dis, mMenuView.getTop(),
-                mContentView.getWidth() + mMenuView.getWidth() - dis,
-                mMenuView.getBottom());
+        if (mSwipeDirection == View_ContactList.DIRECTION_LEFT) {
+
+            mMenuView.layout(mContentView.getWidth() - dis, mMenuView.getTop(),
+                    mContentView.getWidth() + mMenuView.getWidth() - dis,
+                    mMenuView.getBottom());
+        } else {
+            mMenuView.layout(-mMenuView.getWidth() - dis, mMenuView.getTop(),
+                    - dis, mMenuView.getBottom());
+        }
     }
 
     @Override
@@ -196,15 +199,24 @@ public class View_SwipeMenuLayout extends FrameLayout {
 
     public void smoothCloseMenu() {
         state = STATE_CLOSE;
-        mBaseX = -mContentView.getLeft();
-        mCloseScroller.startScroll(0, 0, mMenuView.getWidth(), 0, 350);
+        if (mSwipeDirection == View_ContactList.DIRECTION_LEFT) {
+            mBaseX = -mContentView.getLeft();
+            mCloseScroller.startScroll(0, 0, mMenuView.getWidth(), 0, 350);
+        } else {
+            mBaseX = mMenuView.getRight();
+            mCloseScroller.startScroll(0, 0, mMenuView.getWidth(), 0, 350);
+        }
         postInvalidate();
     }
 
     public void smoothOpenMenu() {
 
         state = STATE_OPEN;
-        mOpenScroller.startScroll(-mContentView.getLeft(), 0, mMenuView.getWidth(), 0, 350);
+        if (mSwipeDirection == View_ContactList.DIRECTION_LEFT) {
+            mOpenScroller.startScroll(-mContentView.getLeft(), 0, mMenuView.getWidth(), 0, 350);
+        } else {
+            mOpenScroller.startScroll(mContentView.getLeft(), 0, mMenuView.getWidth(), 0, 350);
+        }
         postInvalidate();
     }
 
@@ -251,13 +263,18 @@ public class View_SwipeMenuLayout extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         mContentView.layout(0, 0, getMeasuredWidth(),
                 mContentView.getMeasuredHeight());
-        mMenuView.layout(getMeasuredWidth(), 0,
-                getMeasuredWidth() + mMenuView.getMeasuredWidth(),
-                mContentView.getMeasuredHeight());
-
+        if (mSwipeDirection == View_ContactList.DIRECTION_LEFT) {
+            mMenuView.layout(getMeasuredWidth(), 0,
+                    getMeasuredWidth() + mMenuView.getMeasuredWidth(),
+                    mContentView.getMeasuredHeight());
+        } else {
+            mMenuView.layout(-mMenuView.getMeasuredWidth(), 0,
+                    0, mContentView.getMeasuredHeight());
+        }
     }
 
     public void setMenuHeight(int measuredHeight) {
+        Log.i("byz", "pos = " + position + ", height = " + measuredHeight);
         LayoutParams params = (LayoutParams) mMenuView.getLayoutParams();
         if (params.height != measuredHeight) {
             params.height = measuredHeight;

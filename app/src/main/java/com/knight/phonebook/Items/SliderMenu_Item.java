@@ -5,18 +5,15 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Knight on 3/22/2016.
- **/
 
 public class SliderMenu_Item {
-
 
     private Context mContext;
     private List<Slider_Item> mItems;
     private int mViewType;
 
     public SliderMenu_Item(Context context) {
+
         mContext = context;
         mItems = new ArrayList<>();
     }
