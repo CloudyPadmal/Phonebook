@@ -2,7 +2,6 @@ package com.knight.phonebook.Views;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.widget.ScrollerCompat;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -270,15 +269,6 @@ public class View_SwipeMenuLayout extends FrameLayout {
         } else {
             mMenuView.layout(-mMenuView.getMeasuredWidth(), 0,
                     0, mContentView.getMeasuredHeight());
-        }
-    }
-
-    public void setMenuHeight(int measuredHeight) {
-        Log.i("byz", "pos = " + position + ", height = " + measuredHeight);
-        LayoutParams params = (LayoutParams) mMenuView.getLayoutParams();
-        if (params.height != measuredHeight) {
-            params.height = measuredHeight;
-            mMenuView.setLayoutParams(mMenuView.getLayoutParams());
         }
     }
 }

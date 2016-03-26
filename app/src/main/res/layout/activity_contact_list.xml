@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/contact_list_bg_color"
     tools:context="com.knight.phonebook.ContactList">
 
     <android.support.design.widget.AppBarLayout
@@ -17,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#1A237E"
+            android:background="@color/contact_list_bg_color"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -30,6 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/pb_addcontact_icon" />
+        android:src="@drawable/pb_addcontact_icon"
+        app:backgroundTint="#616161"
+        app:backgroundTintMode="src_over" />
 
 </android.support.design.widget.CoordinatorLayout>

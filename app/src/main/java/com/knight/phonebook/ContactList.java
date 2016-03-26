@@ -3,6 +3,7 @@ package com.knight.phonebook;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ public class ContactList extends AppCompatActivity {
         Adapter_ContactList adapter_contactList = new Adapter_ContactList(getApplicationContext(), list_of_contacts);
 
         assert view_contactList != null;
+        view_contactList.setDividerHeight(0);
+        view_contactList.setMinimumHeight(100);
         view_contactList.setAdapter(adapter_contactList);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,6 +53,7 @@ public class ContactList extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,15 +78,23 @@ public class ContactList extends AppCompatActivity {
                         } else {
                             startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number)));
                         }
-
                         break;
 
                     case MSG:
 
-                        Toast.makeText(getApplicationContext(), "Position " + position, Toast.LENGTH_LONG).show();
+                        Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                        smsIntent.setData(Uri.parse("smsto:"));
+                        smsIntent.setType("vnd.android-dir/mms-sms");
+                        smsIntent.putExtra("address", number);
+
+                        try {
+                            startActivity(smsIntent);
+                        }
+                        catch (android.content.ActivityNotFoundException ex) {
+                            Toast.makeText(ContactList.this, "SMS failed, please try again later.", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
-
                 return false;
             }
         });
@@ -109,10 +121,10 @@ public class ContactList extends AppCompatActivity {
                 contact.setContact_Name("Padmal Knight");
                 contact.setMobile_Number("071085231" + i);
                 contact.setLand_Number("455545454" + i);
+                contact.setEmail("padmal@email.com");
                 list_of_contacts.add(contact);
             }
             return null;
         }
     }
-
 }

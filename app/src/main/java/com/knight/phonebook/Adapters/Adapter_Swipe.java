@@ -48,7 +48,7 @@ public class Adapter_Swipe implements WrapperListAdapter, View_SwipeMenu.OnSwipe
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View_SwipeMenuLayout layout;
+        View_SwipeMenuLayout layout = null;
 
         if (convertView == null) {
 
@@ -74,6 +74,7 @@ public class Adapter_Swipe implements WrapperListAdapter, View_SwipeMenu.OnSwipe
             layout = (View_SwipeMenuLayout) convertView;
             layout.closeMenu();
             layout.setPosition(position);
+            View view = mAdapter.getView(position, layout.getContentView(), parent);
         }
 
         return layout;
@@ -82,15 +83,15 @@ public class Adapter_Swipe implements WrapperListAdapter, View_SwipeMenu.OnSwipe
     public void createMenu(SliderMenu_Item menu) {
 
         Slider_Item call_item = new Slider_Item(mContext);
-        call_item.setBackground(new ColorDrawable(Color.rgb(76, 175, 80)));
+        call_item.setBackground(new ColorDrawable(Color.rgb(191, 54, 12)));
         call_item.setIcon(R.drawable.pb_call_icon);
-        call_item.setWidth(dp2px(70));
+        call_item.setWidth(dp2px(80));
         menu.addMenuItem(call_item);
 
         Slider_Item msg_item = new Slider_Item(mContext);
-        msg_item.setBackground(new ColorDrawable(Color.rgb(255, 152, 0)));
-        msg_item.setIcon(R.drawable.pb_email_icon);
-        msg_item.setWidth(dp2px(70));
+        msg_item.setBackground(new ColorDrawable(Color.rgb(250, 250, 250)));
+        msg_item.setIcon(R.drawable.pb_msg_icon);
+        msg_item.setWidth(dp2px(80));
         menu.addMenuItem(msg_item);
     }
 
@@ -102,9 +103,7 @@ public class Adapter_Swipe implements WrapperListAdapter, View_SwipeMenu.OnSwipe
 
     @Override
     public void onItemClick(View_SwipeMenu view, SliderMenu_Item menu, int index) {
-
         if (onMenuItemClickListener != null) {
-
             onMenuItemClickListener.onMenuItemClick(view.getPosition(), menu, index);
         }
     }

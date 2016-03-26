@@ -65,13 +65,6 @@ public class View_ContactList extends ListView {
     public void setAdapter(ListAdapter adapter) {
 
         super.setAdapter(new Adapter_Swipe(getContext(), adapter) {
-            /*@Override
-            public void createMenu(SliderMenu_Item menu) {
-
-                if (mMenuCreator != null) {
-                    mMenuCreator.create(menu);
-                }
-            }*/
 
             @Override
             public void onItemClick(View_SwipeMenu view, SliderMenu_Item menu, int index) {

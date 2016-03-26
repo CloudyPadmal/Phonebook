@@ -3,33 +3,36 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#0288D1"
+    android:background="#000000"
+    android:alpha="0.95"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_contact_height">
-
+    android:layout_height="85dp">
 
     <ImageView
-        android:layout_width="65dp"
-        android:layout_height="match_parent"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:id="@+id/contact_image"
+        android:src="@drawable/pb_defaultcontact_icon"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/contact_name_height"
+        android:layout_height="30dp"
         android:paddingLeft="3dp"
         android:text="Padmal Knight"
+        android:alpha="0.85"
         android:id="@+id/contact_name"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:layout_marginTop="5dp"
-        android:textColor="#E3F2FD"
+        android:layout_marginTop="12dp"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:lines="1"
         android:layout_toLeftOf="@+id/image_land"
         android:layout_toRightOf="@+id/contact_image"
@@ -37,26 +40,22 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/contact_name_height"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="25dp"
         android:text="0710852311"
         android:id="@+id/contact_number"
         android:layout_below="@+id/contact_name"
         android:layout_toRightOf="@+id/contact_image"
         android:layout_toEndOf="@+id/contact_image"
-        android:textSize="18sp"
-        android:gravity="center_vertical"
-        android:layout_marginTop="1dp"
+        android:textSize="20sp"
+        android:layout_marginTop="3dp"
         android:paddingLeft="10dp"
-        android:textStyle="italic"
-        android:textColor="#212121"
-        android:lines="1"
-        android:typeface="serif" />
+        android:textColor="#B71C1C"
+        android:lines="1" />
 
     <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="@dimen/small_image_top_margin"
+        android:layout_width="@dimen/notification_icon_size"
+        android:layout_height="@dimen/notification_icon_size"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/small_image_margin"
         android:layout_marginEnd="@dimen/small_image_margin"
         android:id="@+id/image_land"
@@ -66,9 +65,9 @@
         android:src="@drawable/pb_land_icon"/>
 
     <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="@dimen/small_image_margin"
+        android:layout_width="@dimen/notification_icon_size"
+        android:layout_height="@dimen/notification_icon_size"
+        android:layout_marginTop="5dp"
         android:id="@+id/image_mobile"
         android:layout_below="@+id/image_land"
         android:layout_alignLeft="@+id/image_email"
@@ -77,13 +76,23 @@
 
 
     <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="@dimen/small_image_margin"
+        android:layout_width="@dimen/notification_icon_size"
+        android:layout_height="@dimen/notification_icon_size"
+        android:layout_marginTop="5dp"
         android:id="@+id/image_email"
         android:layout_below="@+id/image_mobile"
         android:layout_alignLeft="@+id/image_land"
         android:layout_alignStart="@+id/image_land"
         android:src="@drawable/pb_email_icon"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/contact_image"
+        android:layout_toEndOf="@+id/contact_image"
+        android:background="#757575"
+        android:alpha="0.6"/>
 
 </RelativeLayout>

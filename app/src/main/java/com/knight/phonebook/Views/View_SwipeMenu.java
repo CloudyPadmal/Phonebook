@@ -41,8 +41,7 @@ public class View_SwipeMenu extends LinearLayout implements View.OnClickListener
     }
 
     private void addItem(Slider_Item item, int id) {
-        LayoutParams params = new LayoutParams(item.getWidth(),
-                LayoutParams.MATCH_PARENT);
+        LayoutParams params = new LayoutParams(item.getWidth(), LayoutParams.MATCH_PARENT);
         LinearLayout parent = new LinearLayout(getContext());
         parent.setId(id);
         parent.setGravity(Gravity.CENTER);

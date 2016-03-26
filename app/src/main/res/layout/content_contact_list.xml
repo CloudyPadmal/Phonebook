@@ -6,6 +6,8 @@
 
     <com.knight.phonebook.Views.View_ContactList
         android:id="@+id/listView"
+        android:paddingRight="1dp"
+        android:paddingLeft="1dp"
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
