@@ -21,7 +21,7 @@
             android:layout_height="200dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            android:background="#03A9F4"
+            android:background="#0277BD"
             android:foreground="@drawable/pb_defaultcontact_icon"
             android:foregroundGravity="center_horizontal|center_vertical"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">

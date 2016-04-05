@@ -89,7 +89,7 @@ public class Adapter_Swipe implements WrapperListAdapter, View_SwipeMenu.OnSwipe
         menu.addMenuItem(call_item);
 
         Slider_Item msg_item = new Slider_Item(mContext);
-        msg_item.setBackground(new ColorDrawable(Color.rgb(250, 250, 250)));
+        msg_item.setBackground(new ColorDrawable(Color.rgb(0, 0, 0)));
         msg_item.setIcon(R.drawable.pb_msg_icon);
         msg_item.setWidth(dp2px(80));
         menu.addMenuItem(msg_item);

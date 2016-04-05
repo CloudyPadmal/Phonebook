@@ -3,7 +3,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#000000"
+    android:background="#FFFFFF"
     android:alpha="0.95"
     android:layout_width="match_parent"
     android:layout_height="85dp">
@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:padding="10dp"
+        android:padding="12dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:id="@+id/contact_image"
@@ -25,14 +25,15 @@
         android:layout_height="30dp"
         android:paddingLeft="3dp"
         android:text="Padmal Knight"
-        android:alpha="0.85"
+        android:alpha="0.9"
+        android:textStyle="bold"
         android:id="@+id/contact_name"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
         android:layout_marginTop="12dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="22sp"
+        android:textColor="#000000"
+
+        android:textSize="20sp"
         android:lines="1"
         android:layout_toLeftOf="@+id/image_land"
         android:layout_toRightOf="@+id/contact_image"
@@ -40,22 +41,23 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="22dp"
         android:text="0710852311"
         android:id="@+id/contact_number"
         android:layout_below="@+id/contact_name"
         android:layout_toRightOf="@+id/contact_image"
         android:layout_toEndOf="@+id/contact_image"
-        android:textSize="20sp"
-        android:layout_marginTop="3dp"
+        android:textSize="18sp"
+        android:layout_marginTop="1dp"
         android:paddingLeft="10dp"
-        android:textColor="#B71C1C"
+        android:textColor="#BF360C"
+        android:alpha="0.6"
         android:lines="1" />
 
     <ImageView
         android:layout_width="@dimen/notification_icon_size"
         android:layout_height="@dimen/notification_icon_size"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginRight="@dimen/small_image_margin"
         android:layout_marginEnd="@dimen/small_image_margin"
         android:id="@+id/image_land"
@@ -87,12 +89,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:id="@+id/textView2"
+        android:layout_height="0.5dp"
+        android:id="@+id/bottom_liner"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/contact_image"
         android:layout_toEndOf="@+id/contact_image"
         android:background="#757575"
-        android:alpha="0.6"/>
+        android:alpha="0.5"/>
 
 </RelativeLayout>
