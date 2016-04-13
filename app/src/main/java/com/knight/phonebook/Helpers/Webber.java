@@ -8,11 +8,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 
-public class Helper_Web extends Application {
+public class Webber extends Application {
 
-    public static final String TAG = Helper_Web.class.getSimpleName();
+    public static final String TAG = Webber.class.getSimpleName();
     private RequestQueue requestQueue;
-    private static Helper_Web webService;
+    private static Webber webService;
 
     @Override
     public void onCreate() {
@@ -22,7 +22,7 @@ public class Helper_Web extends Application {
 
     }
 
-    public static synchronized Helper_Web getWebService() {
+    public static synchronized Webber getWebService() {
 
         return webService;
 

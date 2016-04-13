@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.knight.phonebook.Items.SliderMenu_Item;
 import com.knight.phonebook.Items.Slider_Item;
-import com.knight.phonebook.R;
 
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class View_SwipeMenu extends LinearLayout implements View.OnClickListener
         parent.setGravity(Gravity.CENTER);
         parent.setOrientation(LinearLayout.VERTICAL);
         parent.setLayoutParams(params);
-        parent.setBackgroundDrawable(item.getBackground());
+        parent.setBackground(item.getBackground());
         parent.setOnClickListener(this);
         addView(parent);
 

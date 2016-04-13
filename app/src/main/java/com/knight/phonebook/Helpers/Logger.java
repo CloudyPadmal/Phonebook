@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
-public class Helper_Log {
+public class Logger {
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -15,7 +15,7 @@ public class Helper_Log {
     private static final String FIRST_USAGE = "First Usage";
 
     @SuppressLint("CommitPrefEdits")
-    public Helper_Log(Context context) {
+    public Logger(Context context) {
 
         this.context = context;
         preferences = context.getSharedPreferences(PREFERENCES_LABEL, Context.MODE_PRIVATE);
@@ -32,7 +32,7 @@ public class Helper_Log {
 
     public boolean isFirstUsage() {
 
-        return preferences.getBoolean(FIRST_USAGE, false);
+        return preferences.getBoolean(FIRST_USAGE, true);
 
     }
 }

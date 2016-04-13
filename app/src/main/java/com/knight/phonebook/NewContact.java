@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class NewContact extends AppCompatActivity {
 
     CollapsingToolbarLayout collapsingToolbarLayout;
     AppBarLayout appBarLayout;

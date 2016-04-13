@@ -4,21 +4,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    android:alpha="0.95"
     android:layout_width="match_parent"
-    android:layout_height="85dp">
+    android:layout_height="80dp">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="12dp"
-        android:layout_marginTop="2dp"
+    <com.knight.phonebook.Items.Contact_Image
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:id="@+id/profile_pic"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="3dp"
         android:layout_marginBottom="2dp"
-        android:id="@+id/contact_image"
         android:src="@drawable/pb_defaultcontact_icon"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="6dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -30,14 +27,14 @@
         android:id="@+id/contact_name"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:textColor="#000000"
-
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:lines="1"
         android:layout_toLeftOf="@+id/image_land"
-        android:layout_toRightOf="@+id/contact_image"
-        android:layout_toEndOf="@+id/contact_image" />
+        android:layout_toRightOf="@+id/profile_pic"
+        android:layout_toEndOf="@+id/profile_pic"
+        android:layout_marginLeft="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,14 +42,15 @@
         android:text="0710852311"
         android:id="@+id/contact_number"
         android:layout_below="@+id/contact_name"
-        android:layout_toRightOf="@+id/contact_image"
-        android:layout_toEndOf="@+id/contact_image"
-        android:textSize="18sp"
-        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/profile_pic"
+        android:layout_toEndOf="@+id/profile_pic"
+        android:textSize="15sp"
         android:paddingLeft="10dp"
-        android:textColor="#BF360C"
+        android:textColor="#01579B"
         android:alpha="0.6"
-        android:lines="1" />
+        android:lines="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="1dp" />
 
     <ImageView
         android:layout_width="@dimen/notification_icon_size"
@@ -89,12 +87,25 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.75dp"
         android:id="@+id/bottom_liner"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/contact_image"
-        android:layout_toEndOf="@+id/contact_image"
-        android:background="#757575"
-        android:alpha="0.5"/>
+        android:layout_toRightOf="@+id/profile_pic"
+        android:layout_toEndOf="@+id/profile_pic"
+        android:background="#cacaca"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="0.5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:id="@+id/top_liner"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/profile_pic"
+        android:layout_toEndOf="@+id/profile_pic"
+        android:background="#cacaca"
+        android:layout_marginRight="0.5dp" />
+
+
 
 </RelativeLayout>

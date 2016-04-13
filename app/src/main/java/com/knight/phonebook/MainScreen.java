@@ -3,7 +3,6 @@ package com.knight.phonebook;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+
+import com.knight.phonebook.Helpers.Logger;
 
 public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Logger logger;
 
 
     @Override
@@ -26,17 +28,33 @@ public class MainScreen extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        logger = new Logger(this);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent list_of = new Intent(getApplicationContext(), ContactList.class);
-                startActivity(list_of);
-            }
-        });
 
+
+        if (logger.isFirstUsage()) {
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    logger.setFirstUsage(false);
+                    Intent list_of = new Intent(getApplicationContext(), FirstUsage.class);
+                    startActivity(list_of);
+                }
+            });
+
+        }
+
+        else {
+
+            Intent list_of = new Intent(getApplicationContext(), ContactList.class);
+            startActivity(list_of);
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
